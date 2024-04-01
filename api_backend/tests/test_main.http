@@ -1,0 +1,40 @@
+@host = http://localhost:8000
+
+### Get all items
+GET {{host}}/items/
+
+### Get item by row ID
+### Change the row_id value as needed
+GET {{host}}/items/0
+
+### Add a new item
+### Adjust the JSON body according to your Excel file structure
+POST {{host}}/items/
+Content-Type: application/json
+
+{
+  "name": "New Item",
+  "quantity": 10,
+  "price": 15.5
+}
+
+### Update an item by row ID
+### Change the row_id value and JSON body as needed
+PUT {{host}}/items/1
+Content-Type: application/json
+
+{
+  "name": "Updated Item",
+  "quantity": 20,
+  "price": 20.75
+}
+
+### Delete an item by row ID
+### Change the row_id value as needed
+DELETE {{host}}/items/1
+
+### Upload an Excel file
+### Make sure to adjust the file path
+POST {{host}}/upload/
+Content-Type: multipart/form-data
+@file=<C:/path/to/your/file.xlsx>
